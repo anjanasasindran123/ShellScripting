@@ -1,0 +1,56 @@
+Script 1:Using for loop
+
+#! /bin/bash
+
+parameter_count=0
+
+for i in $@
+
+do
+
+parameter_count=$((parameter_count + 1))
+
+done
+
+echo “No. of parameters = $parameter_count”
+
+echo
+
+Script two using While loop:
+
+
+#! /bin/bash
+
+args=0
+
+while [ ­n “$1” ]
+
+do
+
+ args=$((args + 1))
+
+ shift
+
+done
+
+  echo “The number of command line arguments : $args \n”
+
+
+Script 3:Using until
+
+
+#! /bin/bash
+
+no_of_args=0
+
+until [ ­z “$1” ]
+
+do
+
+no_of_args=$((no_of_args + 1))
+
+shift
+
+done
+
+echo “Number of arguments is : $no_of_args”

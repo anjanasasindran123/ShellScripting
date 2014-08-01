@@ -1,0 +1,17 @@
+      \\  Print     the following
+
+\\Your command, and each and every argument, total number of arguments, all arguments.
+
+\\Note: all these in separate lines
+
+#!/bin/bash
+
+echo "The command is [$0]"
+
+echo "The first argument is [$1]"
+
+echo "The second argument is [$2]"
+
+echo "The total number of arguments is [$#]"
+
+echo "All arguments are [$@]"

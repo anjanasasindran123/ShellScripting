@@ -1,0 +1,24 @@
+
+//sHELL SCRIPT TO FIND FACTORIAL OF A NUMBER//
+
+#!/bin/sh
+
+echo "Enter the number";
+
+read num
+
+factorial=1
+
+counter=0
+
+while [ $num -ne $counter ]
+
+do
+
+       counter=`expr $counter + 1`
+
+       factorial=`expr $factorial \* $counter`
+
+done
+
+echo "Total of factorial is $factorial"

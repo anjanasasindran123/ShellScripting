@@ -1,0 +1,10 @@
+// Write a script that will take a person's name as a parameter to the program name.
+
+//The script should greet that person, as "Good Day name."
+
+
+#!/bin/bash
+
+read dbname
+
+echo "Good day $dbname"

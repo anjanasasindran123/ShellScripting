@@ -1,0 +1,30 @@
+
+//A Shell script to print reverse of a number//
+
+#!/bin/sh
+
+echo "Enter the number";
+
+read number
+
+count = 0
+
+rev = 0
+
+while [number -gt 0]
+
+do
+
+digit   = $($number %10)
+
+rev     = $($rev *10 )
+
+rev     = $($rev  + $digit)
+
+number  = $($number / 10)
+
+count = $($count +1)
+
+done
+
+echo "THe reverse is $rev"

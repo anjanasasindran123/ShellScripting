@@ -1,0 +1,15 @@
+//4.Print the following
+
+Today’s lab is shell programming
+
+We have dd files in /etc
+
+The value of $x is 100
+
+#!/bin/bash
+
+echo 'Today’s lab is shell programming'
+
+echo 'We have dd files in /etc'
+
+echo 'The value of $x is 100'
