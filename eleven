@@ -1,0 +1,26 @@
+
+//The length and breadth of a rectangle and radius of a circle are //inputthrough keyboard.     
+
+//Write a script to calculate the area and perimeter of a rectangle //and area and circumference of the circle.
+
+#!/bin/bash
+
+echo "Enter length of rectangle >"
+
+read length
+
+echo "Enter breadth of rectangle >"
+
+read breadth
+
+echo "The perimeter is $((2 * ($length + $breadth)))"
+
+echo "The area is $(($length * $breadth))"
+
+echo "Enter radius >"
+
+read radius
+
+area=$(echo "scale=2;3.14 * ($radius * $radius)" | bc)
+
+echo The area is $area

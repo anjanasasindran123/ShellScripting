@@ -1,0 +1,21 @@
+//Given a file of numbers (one per line), write a script that will find the lowest and highest number
+
+(use read, sort, head, tail)//
+
+#!/bin/bash
+
+file=$1
+
+file3= Desktop/test.txt
+
+touch $file3
+
+sort $file -o $file3
+
+largest=$(tail -1 $file3)
+
+smallest=$(head -1 $file3)
+
+echo The smallest number is $smallest
+
+echo The largest number is $largest
