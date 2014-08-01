@@ -1,0 +1,41 @@
+//Write a script that would first verify if file  “myfile” exits. If   it does not, create it, and then ask the user for confirmation to erase it.//
+
+#!/bin/bash
+
+file=$1
+
+if [ -f $file ];
+
+then
+
+echo "File exists"
+
+else
+
+echo "File does not exist"
+
+echo "Creating file.. "
+
+touch $file
+
+echo "Do you want to erase the file ? (yes/no) "
+
+read ans
+
+if [ "$ans" = "yes" ]
+
+then
+
+rm $file
+
+echo File deleted
+
+else
+
+echo File not deleted
+
+exit
+
+fi
+
+fi

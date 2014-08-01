@@ -1,0 +1,34 @@
+//Write a shell script which will receive any number of filename as arguments. The shell
+
+script should check whether every argument supplied is a file or directory. If it is a directory
+
+should be appropriately reported.
+
+If it is a filename then name of the file as well as the number of lines present in it should be reported.//
+
+
+
+ #!/bin/bash
+
+for var in "$@"
+
+do
+
+if [ -f $var ]; then
+
+echo "Passed argument is a file"
+
+echo "The filename is $var"
+
+echo "The number of lines:$(wc -l < $var)"
+
+elif [ -d $var ]; then
+
+echo "Passed argument is a directory"
+
+else
+
+echo "Not of valid type"
+
+fi
+done
