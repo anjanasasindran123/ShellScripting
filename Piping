@@ -1,0 +1,32 @@
+/* Author-- Anjana S*/
+/* Creating pipe and forking child*/
+
+#include <stdio.h> 
+#include <unistd.h> 
+#include <sys/types.h> 
+main(int argc, char* argv[]) 
+{ 
+int fdp[2],fdc[2]; 
+char msg[15]="I'm the parent"; 
+char msg1[15]="I'm the child"; 
+char readbuffer[80]; 
+pipe(fdp); 
+pipe(fdc); 
+if (fork() == 0) { 
+close(1); 
+dup(fdc[0]); 
+close(0); 
+write(fdc[1],msg,sizeof(msg)); 
+read(fdp[0],msg1,sizeof(msg1)); 
+} 
+else{ 
+close(0); 
+dup(fdp[0]); 
+close(fdp[1]); 
+dup(fdp[1]); 
+read(fdc[0],fdc[1],sizeof(msg)); 
+write(fdp[1],msg,sizeof(msg)); 
+} 
+return 0; 
+} 
+
