@@ -1,0 +1,25 @@
+/* Author -- Anjana S*/
+
+
+/* a program which redirects the file to output to a file*/
+
+ #include<stdio.h> 
+#include<stdlib.h> 
+#include<fcntl.h> 
+char buffer[2048]; 
+int main (int argc, char * argv[]) { 
+
+  int fopen,count=0; 
+  fopen= open(argv[1],0); 
+  if(fopen==1){ 
+      printf("\n No contents to be displayed"); 
+   } 
+    else { 
+    while ((count = read(fopen,buffer,sizeof(buffer)))>0){ 
+      write(1,buffer,count); 
+    } 
+   } 
+     printf("\n"); 
+     exit(0); 
+     
+}
