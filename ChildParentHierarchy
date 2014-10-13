@@ -1,0 +1,31 @@
+
+/* A program to show a particular child parent heirarchy
+/*Author -- Anjana S*/
+
+#include<stdio.h> 
+#include<unistd.h> 
+#include<stdlib.h> 
+#include<sys/types.h> 
+#include<unistd.h> 
+#include<fcntl.h>
+  int main(int argc,char * argv[]){ 
+    pid_t pid1,pid2,pid3,pid4; 
+    if((pid1=fork())==0){ 
+      printf("CHILD1 PROCESS ID %d PARENT PROCESS ID %d\n",getpid(),getppid()); 
+    } 
+    else if((pid2=fork())==0){ 
+      printf("CHILD2 PROCESS ID %d PARENT PROCESS ID %d\n",getpid(),getppid()); 
+		 
+    if((pid3=fork())==0) 
+	printf("CHILD3 PROCESS ID %d PARENT PROCESS ID %d\n",getpid(),getppid()); 
+    else if((pid4=fork())==0) 
+	printf("CHILD4 PROCESS ID %d PARENT PROCESS ID %d\n",getpid(),getppid()); 
+	wait();	 
+    } 
+    wait(); 
+
+
+    exit(0); 
+ }
+                              
+                          
