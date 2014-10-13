@@ -1,0 +1,25 @@
+/* Author -- Anjana s-- PROGRAM USING fORK SYSTEMCALL*/
+
+#include<stdio.h>
+#include<unistd.h>
+#include<sys/types.h>
+
+int main()
+{
+        pid_t child_pid;
+        int *status=NULL;
+
+        if (fork())
+        {
+                /* wait for child, getting PID */
+                child_pid = wait(status);
+                printf("I'm the parent \n");
+                printf("My child's PID was %d \n\r",child_pid);
+        }
+        else
+        {
+                printf("I am the child \n");
+        }
+        return 0;
+}
+
