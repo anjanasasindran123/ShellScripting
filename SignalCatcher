@@ -1,0 +1,30 @@
+#include<stdio.h> 
+#include<stdlib.h> 
+#include<signal.h> 
+
+sigcatcher() 
+{ 
+   printf("PID %d caught one \n",getpid()); /* print proc id*/ 
+   signal(SIGINT,sigcatcher); 
+} 
+
+main() 
+{ 
+   int ppid; 
+
+   /* catch interrupt signals and execute the function sigcatcher */ 
+ /*  signal(SIGINT,sigcatcher); 
+/* create a child process */ 
+   if (fork() == 0) 
+    { 
+	sleep(5); 
+	ppid = getppid(); 
+  /* process goes into infinite loop and sends an interrupt signal to the parent */ 
+	for (;;) 
+		if (kill(ppid,SIGINT) == -1) 
+			exit(0); 
+    } 
+    /* nice(10);   lower the priority */ 
+    for (;;) ; 
+}
+
