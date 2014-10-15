@@ -1,0 +1,25 @@
+
+/*  a program where parent creates a child and detects its termination with a signal */ssss
+
+#include <signal.h> 
+#include <stdio.h>	 
+#include <stdlib.h> 
+  sigcatcher(){ 
+
+	printf("I am the child\n"); 
+	sleep(3); 
+
+  } 
+main(){ 
+	signal(SIGCHLD,sigcatcher); 
+	if(fork() == 0){ 
+           printf("I am in the child\n"); 
+
+} 
+
+wait(); 
+
+
+} 
+
+
