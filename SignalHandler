@@ -1,0 +1,21 @@
+#include <signal.h> 
+
+main(argc, argv) 
+	int argc; 
+	char *argv[]; 
+{ 
+	int i,ret_val, ret_code; 
+
+	if (argc >= 1) 
+		signal(SIGCLD,SIG_IGN);  /* ignore death of children */ 
+	for (i=0; i < 15; i++) 
+		if (fork() == 0) 
+		{ 
+			/* child proc here */ 
+			printf("child proc %x\n",getpid()); 
+			exit(1); 
+		} 
+	ret_val = wait(&ret_code); 
+	printf("wait ret_val %x ret_code %x \n\r",ret_val,ret_code); 
+}
+
