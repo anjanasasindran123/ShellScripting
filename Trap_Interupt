@@ -1,0 +1,34 @@
+    /*Author--Anjana S*/
+
+#include <signal.h> 
+#include <stdio.h>	 
+#include <stdlib.h> 
+
+int cntc=0; 
+int cntz=0; 
+void cnt(int sig){ 
+
+	cntc++; 
+ 	printf("count of cntrl c is considered here\n"); 
+
+} 
+
+void cnt1(int sig) { 
+	cntz++; 
+        printf("count of cntrl+z is considered here\n"); 
+	if(cntz > 1) 
+      
+	exit(1); 
+} 
+
+main() { 
+
+      signal(SIGINT, cnt);    
+      signal(SIGTSTP, cnt1);    /* SIGTSTP = cntl-Z */ 
+
+      printf("Begin counting INTERRUPTs and cntl-Z \n"); 
+
+      for(;;);  /* infinite loop */ 
+
+} 
+
