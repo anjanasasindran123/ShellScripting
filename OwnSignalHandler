@@ -1,0 +1,27 @@
+
+#include <stdio.h>	 
+#include <stdlib.h>	 
+#include <signal.h>	/* defines signals and the signal() function */ 
+
+sigcatcher() 
+{ 
+   printf("Got Signal here \n"); /* print proc id*/ 
+   signal(SIGSEGV,sigcatcher); 
+	exit(1); 
+} 
+
+
+main(int argc, char **argv) { 
+	 
+	int a; 
+
+ 
+
+   /* catch SIGSEGV - segmentation violation */ 
+      signal(SIGSEGV,sigcatcher); 
+/* Use the signal system call to catch the SIGSEGV signal here. */ 
+
+
+		a = *(int *)0;	/* read address 0 */ 
+} 
+
